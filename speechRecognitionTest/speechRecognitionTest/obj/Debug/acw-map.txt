@@ -1,0 +1,4 @@
+speechRecognitionTest.MainActivity, speechRecognitionTest;md5b8d66692cc3036f435e4f5ca9677d159.MainActivity
+speechRecognitionTest.MainActivity, speechRecognitionTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b8d66692cc3036f435e4f5ca9677d159.MainActivity
+speechRecognitionTest.MainActivity;md5b8d66692cc3036f435e4f5ca9677d159.MainActivity
+speechrecognitiontest.MainActivity;md5b8d66692cc3036f435e4f5ca9677d159.MainActivity
