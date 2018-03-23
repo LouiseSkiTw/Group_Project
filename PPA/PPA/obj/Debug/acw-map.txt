@@ -1,0 +1,20 @@
+PPA.alertActivity, PPA;md5b9d1510d01dfca7c5ab17dda77d7ab7b.alertActivity
+PPA.alertActivity, PPA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b9d1510d01dfca7c5ab17dda77d7ab7b.alertActivity
+PPA.alertActivity;md5b9d1510d01dfca7c5ab17dda77d7ab7b.alertActivity
+ppa.alertActivity;md5b9d1510d01dfca7c5ab17dda77d7ab7b.alertActivity
+PPA.Dialog_SignIn, PPA;md5b9d1510d01dfca7c5ab17dda77d7ab7b.Dialog_SignIn
+PPA.Dialog_SignIn, PPA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b9d1510d01dfca7c5ab17dda77d7ab7b.Dialog_SignIn
+PPA.Dialog_SignIn;md5b9d1510d01dfca7c5ab17dda77d7ab7b.Dialog_SignIn
+ppa.Dialog_SignIn;md5b9d1510d01dfca7c5ab17dda77d7ab7b.Dialog_SignIn
+PPA.dialog_SignUp, PPA;md5b9d1510d01dfca7c5ab17dda77d7ab7b.dialog_SignUp
+PPA.dialog_SignUp, PPA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b9d1510d01dfca7c5ab17dda77d7ab7b.dialog_SignUp
+PPA.dialog_SignUp;md5b9d1510d01dfca7c5ab17dda77d7ab7b.dialog_SignUp
+ppa.dialog_SignUp;md5b9d1510d01dfca7c5ab17dda77d7ab7b.dialog_SignUp
+PPA.MainActivity, PPA;md5b9d1510d01dfca7c5ab17dda77d7ab7b.MainActivity
+PPA.MainActivity, PPA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b9d1510d01dfca7c5ab17dda77d7ab7b.MainActivity
+PPA.MainActivity;md5b9d1510d01dfca7c5ab17dda77d7ab7b.MainActivity
+ppa.MainActivity;md5b9d1510d01dfca7c5ab17dda77d7ab7b.MainActivity
+PPA.voiceRecog, PPA;md5b9d1510d01dfca7c5ab17dda77d7ab7b.voiceRecog
+PPA.voiceRecog, PPA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b9d1510d01dfca7c5ab17dda77d7ab7b.voiceRecog
+PPA.voiceRecog;md5b9d1510d01dfca7c5ab17dda77d7ab7b.voiceRecog
+ppa.voiceRecog;md5b9d1510d01dfca7c5ab17dda77d7ab7b.voiceRecog
