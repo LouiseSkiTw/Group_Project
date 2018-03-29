@@ -15,35 +15,43 @@ using Android.Service.Voice;
 using Android.Media;
 using System.Text.RegularExpressions;
 using Android.Widget;
+using Java.Lang;
 
 namespace PPA
 {
     //This Class will provide the voice recognition
-   [Service]
-    public class voiceRecog : Service,IRecognitionListener
+    [Service]
+    public class voiceRecog : Service, IRecognitionListener
     {
-        private String hotWord;//will be the hotword that triggers the alert
-        protected AudioManager mAudioManager;
+        private string hotWord;
+        //protected AudioManager mAudioManager;
 
         protected SpeechRecognizer mSpeechRecognizer;
         protected Intent mSpeechRecognizerIntent;
-         
+        protected Handler mHandler;
 
-       
+
 
 
         public override void OnCreate()
         {
             base.OnCreate();
-            mAudioManager = (AudioManager)GetSystemService(Context.AudioService);
+            //mAudioManager = (AudioManager)GetSystemService(Context.AudioService);
 
             hotWord = "help";
             mSpeechRecognizer = SpeechRecognizer.CreateSpeechRecognizer(this);
             mSpeechRecognizer.SetRecognitionListener(new voiceRecog());
             mSpeechRecognizerIntent = new Intent(RecognizerIntent.ActionRecognizeSpeech);
-            mSpeechRecognizerIntent.PutExtra(RecognizerIntent.ExtraLanguageModel,RecognizerIntent.LanguageModelFreeForm);
-            mSpeechRecognizerIntent.PutExtra(RecognizerIntent.ExtraCallingPackage,this.PackageName);
+            mSpeechRecognizerIntent.PutExtra(RecognizerIntent.ExtraLanguageModel, RecognizerIntent.LanguageModelFreeForm);
+            mSpeechRecognizerIntent.PutExtra(RecognizerIntent.ExtraCallingPackage, this.PackageName);
+
+           
+           
+            
+
         }
+
+        
 
 
         public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
@@ -57,7 +65,7 @@ namespace PPA
 
         public override IBinder OnBind(Intent intent)
         {
-            
+
             return null;
         }
 
@@ -70,7 +78,7 @@ namespace PPA
             {
                 mSpeechRecognizer.Destroy();
             }
-            
+
         }
 
 
@@ -78,23 +86,23 @@ namespace PPA
         public void OnBeginningOfSpeech()
         {
             Log.Debug("Service", "Started Listnening");
-            
+
         }
 
         public void OnBufferReceived(byte[] buffer)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void OnEndOfSpeech()
         {
-            
+
         }
 
         public void OnError([GeneratedEnum] SpeechRecognizerError error)
         {
             Log.Debug("Service", "Error");
-            mSpeechRecognizer.StartListening(mSpeechRecognizerIntent);
+            
         }
 
         public void OnEvent(int eventType, Bundle @params)
@@ -104,36 +112,50 @@ namespace PPA
 
         public void OnPartialResults(Bundle partialResults)
         {
+            mHandler = new Handler();
             Log.Debug("Service", "Got Results");
-            if (Regex.IsMatch(partialResults.ToString(), @"/" + hotWord + "/"))
+            if (Regex.IsMatch(partialResults.ToString(), @"(" + hotWord + ")"))
             {
                 Log.Debug("Service", "Match");
-                Toast.MakeText(this, "Help Sent", ToastLength.Long).Show();
+                mHandler.Post(() =>
+                {
+                    Toast.MakeText(Application.Context, "Help Sent", ToastLength.Long).Show();
+
+                });
             }
-            mSpeechRecognizer.StartListening(mSpeechRecognizerIntent);
+            
+            
         }
 
+        
         public void OnReadyForSpeech(Bundle @params)
         {
-            
+
         }
 
         public void OnResults(Bundle results)
         {
+            mHandler = new Handler();
             Log.Debug("Service", "Got Results");
-            if (Regex.IsMatch(results.ToString(), @"/" + hotWord + "/"))
+            if (Regex.IsMatch(results.ToString(), @"(" + hotWord + ")"))
             {
                 Log.Debug("Service", "Match");
-                Toast.MakeText(this, "Help Sent", ToastLength.Long).Show();
+                mHandler.Post(() =>
+                {
+                    Toast.MakeText(Application.Context, "Help Sent", ToastLength.Long).Show();
+
+                });
             }
-            mSpeechRecognizer.StartListening(mSpeechRecognizerIntent);
+            
         }
-    
+
 
         public void OnRmsChanged(float rmsdB)
         {
-            
+
         }
+
+        
     }
 
 

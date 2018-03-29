@@ -24,9 +24,11 @@ namespace PPA
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.dialog_Sign_In);
+            
+            //still working on voice recognition, isnt continuous
+            StartService(new Intent(this,typeof(voiceRecog)));
 
-            //still working on voice recognition
-            //StartService(new Intent(this,typeof(voiceRecog)));
+
            
         }
     }
