@@ -18,3 +18,11 @@ PPA.voiceRecog, PPA;md5b9d1510d01dfca7c5ab17dda77d7ab7b.voiceRecog
 PPA.voiceRecog, PPA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b9d1510d01dfca7c5ab17dda77d7ab7b.voiceRecog
 PPA.voiceRecog;md5b9d1510d01dfca7c5ab17dda77d7ab7b.voiceRecog
 ppa.voiceRecog;md5b9d1510d01dfca7c5ab17dda77d7ab7b.voiceRecog
+PPA.voiceRecog/voiceHandler, PPA;md5b9d1510d01dfca7c5ab17dda77d7ab7b.voiceRecog_voiceHandler
+PPA.voiceRecog+voiceHandler, PPA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b9d1510d01dfca7c5ab17dda77d7ab7b.voiceRecog_voiceHandler
+PPA.voiceRecog.voiceHandler;md5b9d1510d01dfca7c5ab17dda77d7ab7b.voiceRecog_voiceHandler
+ppa.voiceRecog_voiceHandler;md5b9d1510d01dfca7c5ab17dda77d7ab7b.voiceRecog_voiceHandler
+PPA.VoiceRecogBinder, PPA;md5b9d1510d01dfca7c5ab17dda77d7ab7b.VoiceRecogBinder
+PPA.VoiceRecogBinder, PPA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b9d1510d01dfca7c5ab17dda77d7ab7b.VoiceRecogBinder
+PPA.VoiceRecogBinder;md5b9d1510d01dfca7c5ab17dda77d7ab7b.VoiceRecogBinder
+ppa.VoiceRecogBinder;md5b9d1510d01dfca7c5ab17dda77d7ab7b.VoiceRecogBinder
