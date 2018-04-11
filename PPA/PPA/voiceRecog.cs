@@ -17,6 +17,7 @@ using System.Text.RegularExpressions;
 using Android.Widget;
 using Java.Lang;
 using System.Timers;
+using Java.Util;
 
 namespace PPA
 {
@@ -98,12 +99,13 @@ namespace PPA
                 switch(msg.What)
                 {
                     case MSG_RECOGNIZER_START_LISTENING:
-                       if (Build.VERSION.SdkInt >= Build.VERSION_CODES.JellyBean)
+                       if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.JellyBean)
                         { 
                             // turn off beep sound  
                             if (!mIsStreamSolo)
                             {
-                                mAudioManager.SetStreamSolo(Stream.VoiceCall, true);
+                                mAudioManager.SetStreamMute(Stream.Notification, true);
+                               
                                 mIsStreamSolo = true;
                             }
                             if (!mIsListening)
@@ -118,7 +120,8 @@ namespace PPA
                     case MSG_RECOGNIZER_CANCEL:
                         if(mIsStreamSolo)
                         {
-                            mAudioManager.SetStreamSolo(Stream.VoiceCall, false);
+                            mAudioManager.SetStreamMute(Stream.Notification, false);
+                            
                             mIsListening = false;
                         }
                         target.mSpeechRecognizer.Cancel();
@@ -156,7 +159,7 @@ namespace PPA
         
 
 
-
+        //on service start
         public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
             //start voice recog
@@ -165,9 +168,9 @@ namespace PPA
             {
                 mServerMessenger.Send(message);
             }
-            catch(RemoteException)
+            catch(RemoteException r)
             {
-                Log.Debug("Service", "Error Occured");
+                Log.Debug("Service", "Error Occured"+r);
             }
             Log.Debug("Service", "Begin Listnening");
             return StartCommandResult.NotSticky;
@@ -251,7 +254,7 @@ namespace PPA
 
             public void OnReadyForSpeech(Bundle @params)
             {
-                if(Build.VERSION.SdkInt >= Build.VERSION_CODES.JellyBean)
+                if(Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.JellyBean)
                 {
                     mIsCountDownOn = true;
                     mTimer.Start();
@@ -263,8 +266,13 @@ namespace PPA
             public void OnResults(Bundle results)
             {
                 var mHandler = new Handler();
-                Log.Debug("Service", "Got Results");
-                if (Regex.IsMatch(results.ToString(), @"(" + hotword + ")"))
+            IList<string> matches = results.GetStringArrayList(SpeechRecognizer.ResultsRecognition);
+            string word = matches[0];
+                Log.Debug("Service", "Got Results" + matches[0]);
+
+            if (matches.Count != 0)
+            {
+                if (Regex.IsMatch(matches[0], @"(" + hotword + ")"))
                 {
                     Log.Debug("Service", "Match");
                     mHandler.Post(() =>
@@ -272,8 +280,12 @@ namespace PPA
                         Toast.MakeText(Application.Context, "Help Sent", ToastLength.Long).Show();
 
                     });
-                    //End the listner when hotword was found
-                    Message message = Message.Obtain(null, MSG_RECOGNIZER_CANCEL);
+                    //will usually end the listner when hotword was found but will restart for testing purposes
+
+
+                    //Message message = Message.Obtain(null, MSG_RECOGNIZER_CANCEL);
+                    mIsListening = false;
+                    Message message = Message.Obtain(null, MSG_RECOGNIZER_START_LISTENING);
                     try
                     {
                         mServerMessenger.Send(message);
@@ -285,6 +297,7 @@ namespace PPA
                 }
                 else//reset the listner if no word was found
                 {
+                    mIsListening = false;
                     Message message = Message.Obtain(null, MSG_RECOGNIZER_START_LISTENING);
                     try
                     {
@@ -295,6 +308,7 @@ namespace PPA
 
                     }
                 }
+            }
                 
                 
             }
@@ -314,20 +328,6 @@ namespace PPA
     
         
 
-    public class VoiceRecogBinder : Binder
-    {
-        private voiceRecog service;
-
-        public VoiceRecogBinder(voiceRecog service)
-        {
-            this.service = service;
-        }
-
-        public voiceRecog GetVoiceRecogService()
-        {
-            return service;
-        }
-    }
 
 
     
