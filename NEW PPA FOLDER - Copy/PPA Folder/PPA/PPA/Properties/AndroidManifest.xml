@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto">
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.RECORD_AUDIO" />
+          package="PPA.PPA" 
+          android:versionCode="1" 
+          android:versionName="1.0"&gt;
+  <uses-sdk android:minSdkVersion="21" /><application android:allowBackup="true" android:label="@string/app_name"></application><receiver android:name=".MyReciever"><intent-filter><action android:name="android.intent.action.NEW_OUTGOING_CALL" /></intent-filter></receiver></manifest>

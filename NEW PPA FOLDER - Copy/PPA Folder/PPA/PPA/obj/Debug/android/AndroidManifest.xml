@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionCode="1" android:versionName="1.0" package="PPA.PPA">
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
+          package="PPA.PPA" 
+          android:versionCode="1" 
+          android:versionName="1.0"&gt;
+  <!--suppress UsesMinSdkAttributes--><uses-sdk android:minSdkVersion="21" /><uses-permission android:name="android.permission.INTERNET" /><uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /><uses-feature android:name="android.hardware.location.gps" /><uses-feature android:name="android.hardware.location.network" /><application android:allowBackup="true" android:label="@string/app_name" android:name="md5b9d1510d01dfca7c5ab17dda77d7ab7b.MainApplication" android:debuggable="true"><activity android:label="Alert" android:name="md5b9d1510d01dfca7c5ab17dda77d7ab7b.Alert" /><activity android:label="PPA" android:name="md5b9d1510d01dfca7c5ab17dda77d7ab7b.MainActivity"><intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter></activity><receiver android:name="md5b9d1510d01dfca7c5ab17dda77d7ab7b.MyReceiver" /><service android:name="md5b9d1510d01dfca7c5ab17dda77d7ab7b.voiceRecog" /><provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="PPA.PPA.mono.MonoRuntimeProvider.__mono_init__" /><!--suppress ExportedReceiver--><receiver android:name="mono.android.Seppuku"><intent-filter><action android:name="mono.android.intent.action.SEPPUKU" /><category android:name="mono.android.intent.category.SEPPUKU.PPA.PPA" /></intent-filter></receiver><meta-data android:name="android.support.VERSION" android:value="25.4.0" /></application><receiver android:name=".MyReciever"><intent-filter><action android:name="android.intent.action.NEW_OUTGOING_CALL" /></intent-filter></receiver></manifest>

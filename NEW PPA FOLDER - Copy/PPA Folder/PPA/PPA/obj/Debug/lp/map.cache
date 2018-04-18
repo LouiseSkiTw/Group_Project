@@ -1,0 +1,12 @@
+Plugin.CurrentActivity
+Plugin.Geolocator.Abstractions
+Plugin.Geolocator
+Plugin.Permissions.Abstractions
+Plugin.Permissions
+System.Runtime
+Xamarin.Android.Support.Annotations
+Xamarin.Android.Support.Compat
+Xamarin.Android.Support.Core.Utils
+System.Configuration.ConfigurationManager
+System.Security.AccessControl
+System.Security.Principal.Windows
